@@ -1,6 +1,6 @@
-var btn = document.querySelector("#btn")
-var txt = document.querySelector("text-input")
-var output = document.querySelector("#output")
+var btn = document.querySelector("#btn");
+var txt = document.querySelector("#text-input");
+var output = document.querySelector("#display");
 
 var serverURL = "https://api.funtranslations.com/translate/ferb-latin.json"
 
@@ -18,9 +18,10 @@ function clickEventHandler(){
     var input = txt.value;
 
     fetch(getTranslationURL(input))
-        .then (response => response.json)
+        .then (response => response.json())
         .then (json => {
-            outputDiv.innerText = json.contents.translated;
+            var translatedTxt = json.contents.translated;
+            output.innerText =translatedTxt;
         })
         .catch(errorHandler)
 }
